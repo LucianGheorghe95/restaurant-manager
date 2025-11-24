@@ -38,4 +38,3 @@ punctează doar ce funcționează.
 • Persistență cu autentificare – datele protejate trebuie să fie accesibile doar după
 autentificare, astfel încât fiecare utilizator să poată vizualiza și modifica exclusiv propriile
 date, iar autentificarea să fie păstrată chiar și după refresh-ul browserului.
-• Proiectul este individual – nu se lucrează în echipă
