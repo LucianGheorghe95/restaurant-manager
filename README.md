@@ -1,40 +1,73 @@
-Cerințe proiect
-Realizarea unei aplicații pe una dintre temele specificate, cu back-end RESTful care accesează date
-stocate într-o bază relațională sau nerelațională pe baza unui API de persistență și date expuse de
-un serviciu extern și frontend SPA realizat cu un framework bazat pe componente.
-[Componente + punctaje]
-• Persistență date (10%) – cel puțin 2 entități cu relație părinte - copil stocate într-o bază
-relațională/nerelațională și accesate prin ORM.
-• Operații REST (25%) – implementarea de endpoint-uri CRUD corecte (Create, Read,
-Update, Delete) cu răspunsuri JSON și coduri HTTP standard.
-• Front-end SPA (25%) – aplicație React.js/Angular care consumă API-ul și oferă interfață
-funcțională prin componente și routing.
-• Persistență cu autentificare (10%) – datele se accesează doar în urma autentificării
-utilizatorului (ex. JWT/OAuth) și se păstrează sesiuni valide.
-• Integrare cu un serviciu extern - opțional (dacă integrarea cu serviciul specificat nu este
-posibilă se poate utiliza un serviciu similar)
-[Stil și calitatea codului] → 20%
-• Aplicație reală, coerentă din punct de vedere al logicii de business
-• Codul trebuie să fie bine organizat, numele variabilelor trebuie să fie sugestive (și trebuie
-să se utilizeze un standard de numire oricare ar fi el e.g. camel case), codul trebuie să fie
-indentat pentru a fi ușor citibil
-• Opțional: comments în cod
-• Opțional: test coverage
-[Punctaj din oficiu] → 10%
-[Livrabile parțiale] - 3 etape (cadrul didactic coordonator va fi invitat ca un contribuitor la
-repository) - nelivrarea la o etapă intermediară reduce punctajul maxim cu 10% (i.e. dacă
-punctajul maxim este de 5 puncte din nota finală livrarea direct la final implică un punctaj maxim
-de 4 puncte)
-• Specificații detaliate, descrierea proiectului, prezența unui proiect în git - se livrează până
-la data de 25.11.2025
-• Serviciu RESTful funcțional în repository + instrucțiuni de rulare - se livrează până la data
-de 20.12.2025
-• Aplicația completă - se livrează până la finalul ultimei săptămâni a semestrului NOTA.
-Detalii importante:
-• Aplicațiile care nu rulează nu primesc punctaj.
-• Se poate demonstra doar partea de back-end sau doar partea de front-end, caz în care se
-punctează doar ce funcționează.
-• Punctajul se acordă strict pe baza codului funcțional demonstrat.
-• Persistență cu autentificare – datele protejate trebuie să fie accesibile doar după
-autentificare, astfel încât fiecare utilizator să poată vizualiza și modifica exclusiv propriile
-date, iar autentificarea să fie păstrată chiar și după refresh-ul browserului.
+INSTRUCTIUNI DE RULARE PROIECT
+Pentru activarea backend-ului trebuie sa deschidem un terminal unde sa introducem urmatoarele comenzi:
+•	cd backend
+•	npm install
+•	npm run dev
+Backend-ul va rula implicit pe http://localhost:port
+
+Pentru activarea frontend-ului trebuie sa deschidem un terminal nou unde sa introducem urmatoare comenzi:
+•	cd frontend
+•	npm install
+•	npm run dev
+Frontend-ul va rula pe http://localhost:port 
+Se acceseaza link-ul pentru frontend.
+
+Securitate
+•	Datele sunt accesibile doar dupa autentificare.
+•	Token-ul JWT este trimis prin header Authorization.
+•	Fisierele .env si node_modules sunt excluse din repository.
+
+DESCRIERE PROIECT
+Restaurant Manager este o aplicatie web de tip SPA (Single Page Application) dezvoltata pentru gestionarea restaurantelor, care include:
+•	autentificare cu JWT,
+•	backend RESTful,
+•	frontend React,
+•	integrare cu Google Maps pentru afisarea locatiei restaurantelor.
+Proiectul utilizeaza o arhitectura completa frontend + backend, cu persistenta datelor si autentificare.
+
+TEHNOLOGII
+Backend
+•	Node.js
+•	Express.js
+•	Prisma ORM
+•	JWT (JSON Web Token) pentru autentificare
+•	SQLite / PostgreSQL (prin Prisma)
+Frontend
+•	React.js
+•	React Router
+•	Axios
+•	Vite
+•	Google Maps JavaScript API
+
+FUNCTIONALITATI
+Autentificare
+•	Inregistrare utilizator
+•	Login cu email si parola
+•	Autentificare pe baza de JWT
+•	Acces restrictionat la date (doar utilizatorul logat)
+Restaurante
+•	Creare restaurant
+•	Afisare lista restaurante
+•	Detalii restaurant
+•	Stergere restaurant
+
+Adresa
+•	Fiecare restaurant are o singura adresa
+•	Salvare strada, oras, tara, latitudine, longitudine
+•	Afisare locatie pe Google Maps
+
+Meniu 
+Un restaurant poate avea mai multe produse in meniu
+Fiecare produs are:
+•	nume
+•	categorie (doar categorie General)
+•	pret
+
+Integrare Google Maps
+Aplicatia foloseste Google Maps JavaScript API pentru:
+•	afisarea hartii
+•	plasarea markerelor pe baza coordonatelor (lat/lng)
+Cheia API este pastrata in fisierul .env si NU este inclusa in repository.
+Exemplu .env:
+VITE_API_URL=http://localhost:port
+VITE_GOOGLE_MAPS_API_KEY= API KEY
